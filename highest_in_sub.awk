@@ -1,0 +1,1 @@
+BEGIN {FS="|"; max1=0; max2=0; max3=0} NR>1 {if(max1<$3) {max1=$3; stud1=$2} if(max2<$4) {max2=$4; stud2=$2} if(max3<$5) {max3=$5; stud3=$2}} END {printf("The Highest Scorers are as follows:\nHighest Scorer in subject 1: %s\nHighest Scorer in subject 2: %s\nHighest Scorer in subject 3: %s\n",stud1,stud2,stud3)}
