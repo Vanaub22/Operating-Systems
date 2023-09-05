@@ -7,4 +7,4 @@ void main(){
     sleep(10);
     if(pid==0) printf("\nThis is from the child process. PID: %d PPID: %d\n",getpid(),getppid());
     else printf("\nThis is from the parent process. PID: %d PPID: %d\n",getpid(),getppid());
-}// end of main
+} // end of main
