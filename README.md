@@ -3,3 +3,5 @@ This repository contains all of my codes from the course **Operating Systems Lab
 
  - Bourne-Again Shell (BASH)
  - Shell Scripts written using the Vim Editor
+
+The syllabus is broadly divided into 2 parts: 1. **Bourne Shell Scripting** and 2. **Process and Thread Management**.
