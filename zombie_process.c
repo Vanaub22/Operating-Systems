@@ -10,7 +10,6 @@ void main(){
         printf("\nChild Process Has Started with PID: %d and PPID: %d\n",getpid(),getppid());
         sleep(5);
         printf("\nChild Process killed.\n");
-
     } // end of if block
     else{
         printf("\nThis is the parent process.\n");
