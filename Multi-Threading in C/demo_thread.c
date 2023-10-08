@@ -27,4 +27,4 @@ void* th_func(void* args) {
         sleep(1);
     }
     printf("\n");
-} // end of fucntion
+} // end of function
