@@ -13,28 +13,21 @@ void* findPrimesInRange(void*);
 bool isPrime(int);
 void main() {
     int n,i;
-    printf("PLease enter the value of N: ");
+    printf("Please enter the value of N: ");
     scanf("%d",&n);
     range* Range=(range*)malloc(sizeof(range));
     Range->ll=1;
-    Range->ul=n/10;
+    int step=n/10,rem=n%10;
     pthread_t thread;
-    for(i=1;i<=n/10;i++) {
+    for(i=1;i<=10;i++) {
+        if(i==10) Range->ul=Range->ll+step-1+rem;
+        else Range->ul=Range->ll+step-1;
         printf("Creating Thread %d...\n",i);
         pthread_create(&thread,NULL,findPrimesInRange,(void*)Range);
         pthread_join(thread,NULL);
         printf("Thread %d has now joined the Main Thread.\n",i);
-        Range->ll+=n/10;
-        Range->ul+=n/10;
+        Range->ll+=step;
     } // end of for loop
-    int rem=n%10; // for the remaining portion
-    if(rem!=0) {
-        Range->ul=Range->ll+rem;
-        printf("Creating Thread %d...\n",i+1);
-        pthread_create(&thread,NULL,findPrimesInRange,(void*)Range);
-        pthread_join(thread,NULL);
-        printf("Thread %d has now joined the Main Thread.\n",i+1);
-    } // end of if block
     printf("All 10 Threads have successfully done their tasks and then joined the Main Thread in Sequence.\n");
 } // end of main
 void* findPrimesInRange(void* args) {
