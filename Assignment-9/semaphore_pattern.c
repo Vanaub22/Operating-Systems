@@ -18,14 +18,13 @@ void* print_ba(void* args){
 	sem_wait(&mutex);
 	pthread_exit(NULL);
 } // end of func.
-
 void main(){
 	sem_init(&mutex,0,1);
 	pthread_t thread1,thread2;
 	int i;
 	for(i=0;i<3;i++){
-		pthread_create(&thread1,NULL,print_ab,NULL);
 		pthread_create(&thread1,NULL,print_ba,NULL);
+		pthread_create(&thread2,NULL,print_ab,NULL);
 		pthread_join(thread1,NULL);
 		pthread_join(thread2,NULL);
 	}
