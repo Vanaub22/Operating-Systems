@@ -6,6 +6,7 @@
 #include<unistd.h>
 #include<sys/types.h>
 #include<stdbool.h>
+#include<math.h>
 typedef struct {
     int ll,ul;
 } range; // end of structure definition

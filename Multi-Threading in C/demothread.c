@@ -1,4 +1,4 @@
-// AIM: To create a Thread and execute
+// AIM: To create a thread and execute
 #include<stdio.h>
 #include<stdlib.h>
 #include<pthread.h>
