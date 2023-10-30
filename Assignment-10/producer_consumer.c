@@ -20,7 +20,7 @@ void* producer(void* args) {
 		scanf("%d",&item);
 		if(item==-1) {
 			printf("Execution Terminated...");
-			break;
+			exit(0);
 		} // end of if block
 		printf("\nProducer is Adding %d to the Buffer\n",item);
 		buffer[in]=item;
@@ -47,3 +47,17 @@ void* consumer(void* args) {
 	} // end of while loop
 	pthread_exit(NULL);
 } //  end of fn.
+
+void main() {
+	sem_init(&full,0,0);
+	sem_init(&empty,0,BUFFER_SIZE);
+	sem_init(&mutex,0,1);
+	pthread_t prod,cons;
+	pthread_create(&prod,NULL,producer,NULL);
+	pthread_create(&cons,NULL,consumer,NULL);
+	pthread_join(prod,NULL);
+	pthread_join(cons,NULL);
+	sem_destroy(&full);
+	sem_destroy(&empty);
+	sem_destroy(&mutex);
+}
