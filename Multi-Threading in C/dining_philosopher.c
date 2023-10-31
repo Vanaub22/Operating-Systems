@@ -11,7 +11,6 @@
 #include<semaphore.h>
 #define CNT 5
 void* philosopher_func(void*);
-void eat(int);
 sem_t chopsticks[CNT];
 void main() {
     int n[CNT],i;
@@ -23,6 +22,7 @@ void main() {
         pthread_create(&philosophers[i],NULL,philosopher_func,(void*)&n[i]);
     }
     for(i=0;i<CNT;i++) pthread_join(philosophers[i],NULL);
+    printf("\n");
 } // end of main
 void* philosopher_func(void* ph) {
     int ph_no=*(int*)ph;
@@ -33,14 +33,11 @@ void* philosopher_func(void* ph) {
     printf("\nPhilospher %d tries to pick up Right chopstick, i.e chopstick %d...",ph_no,(ph_no+1)%CNT);
     sem_wait(&chopsticks[(ph_no+1)%CNT]);
     printf("\nPhilospher %d successfully picks up Right chopstick, i.e chopstick %d",ph_no,(ph_no+1)%CNT);
-    eat(ph_no);
+    printf("\nPhilosopher %d is eating...",ph_no);
     sleep(2); // Time for eating
     printf("\nPhilosopher %d has finished eating.",ph_no);
     sem_post(&chopsticks[(ph_no+1)%CNT]);
     printf("\nPhilospher %d puts down the Right chopstick, i.e chopstick %d",ph_no,(ph_no+1)%CNT);
     sem_post(&chopsticks[ph_no]);
     printf("\nPhilospher %d puts down the Left chopstick, i.e chopstick %d",ph_no,ph_no);
-} // end of fn.
-void eat(int ph) {
-    printf("\nPhilosopher %d is eating...",ph);
 } // end of fn.
