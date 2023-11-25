@@ -1,0 +1,2 @@
+BEGIN{IGNORECASE=1}
+/Ian|MARK/ {print $0}
