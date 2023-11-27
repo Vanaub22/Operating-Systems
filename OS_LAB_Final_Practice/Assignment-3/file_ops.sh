@@ -28,7 +28,7 @@ do
 	read -p "Enter the name of the file: " filename
 	if [ -e $filename ]
 	then
-		modtime=`ls -l | grep "$filename" | cut -c43-47`
+		modtime=`ls -l | grep "$filename" | cut -c42-47`
 		echo "The last modification time of the file $filename is $modtime"
 	else
 		echo "$filename is not a file under the current directory"
