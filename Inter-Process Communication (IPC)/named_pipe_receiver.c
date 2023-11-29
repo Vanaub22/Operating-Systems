@@ -7,7 +7,7 @@
 #include<unistd.h>
 #include<string.h>
 #include<sys/wait.h>
-#define MYFIFO "./pipefile" // We must assign a name and path
+#define MYFIFO "/tmp/pipefile" // We must assign a name and path
 void main() {
 	char str[20];
 	int fd=open(MYFIFO,O_RDWR);

@@ -8,7 +8,7 @@
 #include<string.h>
 #include<sys/wait.h>
 #include<sys/stat.h>
-#define MYFIFO "./pipefile" // We must assign a name and path
+#define MYFIFO "/tmp/pipefile" // We must assign a name and path
 void main() {
 	unlink(MYFIFO);
 	mkfifo(MYFIFO,0666);
