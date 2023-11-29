@@ -15,7 +15,7 @@ void main() {
 	printf("Enter the first string: ");
 	scanf("%[^\n]s",str1);
 	printf("Enter the second string: ");
-	scanf("%[^\n]s",str2);
+	scanf(" %[^\n]s",str2);
 	int fd=open(MYFIFO,O_RDWR);
 	write(fd,str1,strlen(str1)+1);
 	usleep(100);
@@ -23,6 +23,6 @@ void main() {
 	usleep(100);
 	char output[20];
 	read(fd,output,20);
-	printf("The results of evaluation are as follows: %s",output);
+	printf("The results of evaluation are as follows: %s\n",output);
 	close(fd);
 }

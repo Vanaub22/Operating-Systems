@@ -15,10 +15,9 @@ bool equalStrings(char* str1, int l1, char* str2, int l2) {
 	return true;
 }
 void main() {
-	int fd=open(MYFIFO,O_RDONLY);
+	int fd=open(MYFIFO,O_RDWR);
 	char str1[20],str2[20];
 	int l1=read(fd,str1,20),l2=read(fd,str2,20);
-	fd=open(MYFIFO,O_WRONLY);
 	if(equalStrings(str1,l1,str2,l2)) write(fd,"SAME",5);
 	else write(fd,"NOT SAME",9);
 	close(fd);
