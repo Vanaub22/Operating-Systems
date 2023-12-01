@@ -2,7 +2,7 @@ public class Synchronization {
     public static void main(String args[]) throws Exception {
         Runnable obj=new Update();
         Thread t1=new Thread(obj,"First Thread");
-        Thread t2=new Thread(obj,"First Thread");
+        Thread t2=new Thread(obj,"Second Thread");
         t1.start();
         t2.start();
         t1.join();
@@ -29,7 +29,11 @@ class Update implements Runnable {
         shared_resource++;
     }
     public void run() {
-        for(int i=0;i<100;i++) increment();
-        System.out.println("Updated Value: "+shared_resource);
+        try{
+            for(int i=0;i<100;i++) increment();
+            Thread.sleep(1000);
+            System.out.println("Updated Value: "+shared_resource);
+        }
+        catch(InterruptedException e) {}
     } // end of method
 } // end of class
