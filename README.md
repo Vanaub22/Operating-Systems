@@ -4,7 +4,7 @@ This repository contains all of my codes from the course **Operating Systems Lab
 
  - Shell Scripting has been done in **Bourne-again Shell (BASH)**
  - System Programming has been done in **C Langauge** 
- - Apart from **bash**, Assignment-5 will involve writing **awk** scripts as well.
+ - Apart from **bash**, Assignment-4 will involve writing **awk** scripts as well.
 
 The syllabus is broadly divided into 2 parts: 1. **Shell Scripting** and 2. **System Programming (Process and Thread Management)**.
 
