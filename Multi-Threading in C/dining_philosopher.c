@@ -26,7 +26,7 @@ void main() {
 } // end of main
 void* philosopher_func(void* ph) {
     int ph_no=*(int*)ph;
-    printf("\nPhilosopher %d wants to eat, therfore he would need chopsticks %d and %d.",ph_no,ph_no,(ph_no+1)%CNT);
+    printf("\nPhilosopher %d wants to eat, therefore he would need chopsticks %d and %d.",ph_no,ph_no,(ph_no+1)%CNT);
     printf("\nPhilospher %d tries to pick up Left chopstick, i.e chopstick %d...",ph_no,ph_no);
     sem_wait(&chopsticks[ph_no]);
     printf("\nPhilospher %d successfully picks up Left chopstick, i.e chopstick %d",ph_no,ph_no);
