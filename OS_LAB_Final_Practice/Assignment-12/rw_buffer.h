@@ -8,7 +8,7 @@ typedef struct {
 	sem_t mutex,write;
 	unsigned reader_cnt;
 	int data;
-}; buffer
+} buffer;
 
 void buff_init(buffer* Buf) {
 	sem_init(&Buf->mutex,1,1);
