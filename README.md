@@ -46,7 +46,7 @@ To compile C programs from the terminal which use the library pthread.h to deal 
     gcc <my_C_program_name>.c -lpthread -o <executable_name>
  For general C programs:
 
-     gcc <my_C_program_name>.c -lpthread -o <executable_name>
+     gcc <my_C_program_name>.c -o <executable_name>
 
    To run:
    
